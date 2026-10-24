@@ -5,6 +5,9 @@ public:
         if(x<0) {
            return false; 
         }
+        else if(0<x&&x<10){
+            return true;
+        }
         else{
             int original =x;
             int LastD;
