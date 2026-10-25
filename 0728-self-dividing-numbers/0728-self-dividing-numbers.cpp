@@ -1,22 +1,21 @@
 class Solution {
 public:
-    bool check(int n, int num) {
-        if (n == 0)
-            return true;
-
-        int digit = n % 10;
-
-        if (digit == 0 || num % digit != 0)
-            return false;
-
-        return check(n / 10, num);
-    }
-
     vector<int> selfDividingNumbers(int left, int right) {
         vector<int> ans;
 
         for (int i = left; i <= right; i++) {
-            if (check(i, i))
+            int n = i;
+
+            while (n > 0) {
+                int d = n % 10;
+
+                if (d == 0 || i % d != 0)
+                    break;
+
+                n /= 10;
+            }
+
+            if (n == 0)
                 ans.push_back(i);
         }
 
